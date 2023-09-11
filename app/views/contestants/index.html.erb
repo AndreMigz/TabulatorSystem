@@ -1,0 +1,7 @@
+<!-- Add page header here -->
+<h1> Contestants </h1>
+<ul>
+  <% @contestants.each do | contestant | %>
+    <%= contestant.full_name %>
+  <%end%>
+</ul>
