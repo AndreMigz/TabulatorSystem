@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.3"
+#ruby "3.0.3"
 
 # Alternative ruby version
-#ruby "3.1.2"
+ruby "3.1.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.1"
@@ -49,7 +49,7 @@ gem "tzinfo-data"
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-gem "sassc-rails"
+#gem "sassc-rails"
 
 # Use Bootstrap for styles
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
