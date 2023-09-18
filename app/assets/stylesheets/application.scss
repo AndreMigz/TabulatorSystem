@@ -15,3 +15,52 @@
  */
 
  @import "bootstrap";
+
+ body{
+  background-color: rgb(243, 243, 243);
+}
+.content {
+  @extend .container;
+}
+header {
+  h1 {
+    margin-left: 15px;
+  }
+
+  .left {
+      list-style: none;
+  }
+
+  a {
+      text-decoration: none;
+  }
+  .left {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      padding:5px;
+      a {
+          margin-left: 10px;
+      }
+  }
+  .right-nav {
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: 0;
+  }
+
+  .button{
+      padding: 7px;
+      background: rgb(57, 100, 255);
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+  }
+  .button:hover {
+      background:white;
+      border: 1px solid rgb(57, 100, 255);
+      color: rgb(57, 100, 255);
+  }
+}

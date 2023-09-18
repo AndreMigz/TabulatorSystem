@@ -1,7 +1,19 @@
-<!-- Add page header here -->
-<h1> Contestants </h1>
-<ul>
-  <% @contestants.each do | contestant | %>
-    <%= contestant.full_name %>
-  <%end%>
-</ul>
+<div class="container">
+    <h1>Contestants</h1>
+    <table class="table table-striped">
+        <thead class="table-primary">
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <% @contestants.each do |contestant| %>
+                <tr>
+                    <td><%= contestant.full_name %></td>
+                    <td> <%= render partial: 'contestants/score_modal', locals: { contestant: contestant } %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
