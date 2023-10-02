@@ -20,7 +20,7 @@
             <% @contestants.each do |contestant| %>
                 <tr>
                     <td><%= contestant.full_name %></td>
-                    <td> <%= render partial: 'contestants/score_modal', locals: { contestant: contestant } %></td>
+                    <td> <%= render partial: 'contestants/score_modal', locals: { rating: contestant.ratings.first } %></td>
                 </tr>
             <% end %>
         </tbody>

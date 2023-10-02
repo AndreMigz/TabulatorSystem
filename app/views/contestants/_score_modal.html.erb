@@ -1,35 +1,35 @@
 <!-- Button to open modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#scoreModal_<%= contestant.id %>">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#scoreModal_<%= rating.id %>">
     Add Score
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="scoreModal_<%= contestant.id %>" tabindex="-1" role="dialog" aria-labelledby="scoreModalLabel_<%= contestant.id %>" aria-hidden="true">
+<div class="modal fade" id="scoreModal_<%= rating.id %>" tabindex="-1" role="dialog" aria-labelledby="scoreModalLabel_<%= rating.id %>" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <%= form_with(model: rating, url: update_contestant_scores_path(contestant), method: :post, local: true) do |form| %>
+            <%= form_with(model: rating, url: contestant_rating_path(rating), method: :patch, local: true) do |form| %>
                 <div class="modal-header">
-                    <h5 class="modal-title" id="scoreModalLabel_<%= contestant.id %>">Add Score for <%= contestant.full_name %></h5>
+                    <h5 class="modal-title" id="scoreModalLabel_<%= rating.id %>">Add Score for <%= rating.contestant.full_name %></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <%= form.hidden_field :contestant_id, value: contestant.id %>
+                    <%= form.hidden_field :rating_id, value: rating.id %>
                     <!-- Input fields inside modal -->
                     <div class="mb-3">
                         <%= form.label :talent, "Talent" %>
                         <%= form.number_field :talent, class: "form-control", placeholder: "Enter Talent Score" %>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 d-none">
                         <%= form.label :jeans_wear, "Jeans Wear" %>
                         <%= form.number_field :jeans_wear, class: "form-control", placeholder: "Enter Jeans Wear Score" %>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 d-none">
                         <%= form.label :sports_wear, "Sports Wear" %>
                         <%= form.number_field :sports_wear, class: "form-control", placeholder: "Enter Sports Wear Score" %>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 d-none">
                         <%= form.label :prelim_qa, "Preliminary Q&A" %>
                         <%= form.number_field :prelim_qa, class: "form-control", placeholder: "Enter Preliminary Q&A Score" %>
                     </div>

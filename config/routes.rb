@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "contestants#index"
+
+  namespace :contestant do
+    resources :ratings
+  end
 end
