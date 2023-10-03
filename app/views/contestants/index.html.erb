@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" data-controller="score-modal">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1 class="mb-0">Contestants</h1>
         <div class="w-25">
-            <select class="form-select w-100">
-                <% Rating::EXPOSURE.each do |exposure| %>
-                    <option value="<%= exposure %>"><%= exposure %></option>
-                <% end %>
+            <select class="form-select w-100" id="scoreDropdown">
+              <% Rating::EXPOSURE.each_with_index do |exposure, index| %>
+                <option value="<%= index %>"><%= exposure %></option>
+              <% end %>
             </select>
         </div>
     </div>
