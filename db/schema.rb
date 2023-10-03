@@ -23,15 +23,15 @@ ActiveRecord::Schema.define(version: 2023_09_10_122012) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "talent"
-    t.integer "jeans_wear"
-    t.integer "sports_wear"
-    t.integer "prelim_qa"
+    t.integer "talent", default: 0
+    t.integer "jeans_wear", default: 0
+    t.integer "sports_wear", default: 0
+    t.integer "prelim_qa", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "contestant_type"
     t.integer "contestant_id"
-    t.index ["contestant_type", "contestant_id"], name: "index_ratings_on_contestant"
+    t.index ["contestant_id"], name: "index_ratings_on_contestant_id"
   end
 
+  add_foreign_key "ratings", "contestants"
 end

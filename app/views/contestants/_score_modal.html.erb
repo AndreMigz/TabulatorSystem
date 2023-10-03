@@ -1,5 +1,5 @@
 <!-- Button to open modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#scoreModal_<%= rating.id %>">
+<button type="button" class="btn btn-primary" data-action="click->score-modal#toggleFields" data-toggle="modal" data-target="#scoreModal_<%= rating.id %>">
     Add Score
 </button>
 
@@ -17,19 +17,19 @@
                 <div class="modal-body">
                     <%= form.hidden_field :rating_id, value: rating.id %>
                     <!-- Input fields inside modal -->
-                    <div class="mb-3">
+                    <div class="mb-3 d-none" id="talentField" data-score-modal-target="talentField">
                         <%= form.label :talent, "Talent" %>
                         <%= form.number_field :talent, class: "form-control", placeholder: "Enter Talent Score" %>
                     </div>
-                    <div class="mb-3 d-none">
+                    <div class="mb-3 d-none" id="jeansWearField" data-score-modal-target="jeansWearField">
                         <%= form.label :jeans_wear, "Jeans Wear" %>
                         <%= form.number_field :jeans_wear, class: "form-control", placeholder: "Enter Jeans Wear Score" %>
                     </div>
-                    <div class="mb-3 d-none">
+                    <div class="mb-3 d-none" id="sportWearField" data-score-modal-target="sportsWearField">
                         <%= form.label :sports_wear, "Sports Wear" %>
                         <%= form.number_field :sports_wear, class: "form-control", placeholder: "Enter Sports Wear Score" %>
                     </div>
-                    <div class="mb-3 d-none">
+                    <div class="mb-3 d-none"id="prelimQaField" data-score-modal-target="prelimQaField">
                         <%= form.label :prelim_qa, "Preliminary Q&A" %>
                         <%= form.number_field :prelim_qa, class: "form-control", placeholder: "Enter Preliminary Q&A Score" %>
                     </div>
