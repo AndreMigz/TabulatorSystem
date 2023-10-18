@@ -259,7 +259,6 @@ DEPENDENCIES
   nokogiri
   puma (~> 5.0)
   rails (~> 7.0.1)
-  sassc-rails
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)

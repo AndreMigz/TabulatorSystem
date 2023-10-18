@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_09_10_122012) do
+ActiveRecord::Schema.define(version: 2023_10_18_042634) do
 
   create_table "contestants", force: :cascade do |t|
     t.string "first_name"
@@ -23,15 +23,27 @@ ActiveRecord::Schema.define(version: 2023_09_10_122012) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "talent"
-    t.integer "jeans_wear"
-    t.integer "sports_wear"
-    t.integer "prelim_qa"
+    t.integer "talent", default: 0
+    t.integer "jeans_wear", default: 0
+    t.integer "sports_wear", default: 0
+    t.integer "prelim_qa", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "contestant_type"
     t.integer "contestant_id"
-    t.index ["contestant_type", "contestant_id"], name: "index_ratings_on_contestant"
+    t.index ["contestant_id"], name: "index_ratings_on_contestant_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at", precision: 6
+    t.datetime "remember_created_at", precision: 6
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "ratings", "contestants"
 end

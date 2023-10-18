@@ -4,6 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["talentField", "jeansWearField", "sportsWearField", "prelimQaField"];
   static values = { selectedValue: String };
+  
   connect() {
     // Don't trigger toggleFields on connect
   }
