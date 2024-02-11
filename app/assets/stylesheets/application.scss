@@ -18,6 +18,7 @@
 
  body{
   background-color: rgb(243, 243, 243);
+  font-family: 'Open Sans', sans-serif;
 }
 .content {
   @extend .container;
@@ -43,12 +44,23 @@ header {
           margin-left: 10px;
       }
   }
+  .left-nav {
+    margin-left : 16%;
+
+    a {
+      display: flex;
+      img {
+        width: 55px;
+        height: auto;
+      }
+    }
+  }
   .right-nav {
       display:flex;
       align-items: center;
       justify-content: center;
       margin-left: auto;
-      margin-right: 0;
+      margin-right: 16%;
   }
 
   .button{

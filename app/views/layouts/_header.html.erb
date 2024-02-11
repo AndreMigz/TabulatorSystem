@@ -1,16 +1,26 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <h1><%= link_to "Tabulator System", root_path %></h1>
-        <ul class="left">
-        <li>
-            <%= link_to "Tabulator", root_path %>
-        </li>
-        <li>
-            <%= link_to "Admin Dashboard", root_path %>
-        </li>
-        </ul>
-        <div class="right-nav">
-          <!-- Right nav content -->
-        </div>
+      <div class="left-nav">
+        <%= link_to root_path do %>
+          <%= image_tag "tally-marks.png", class: "icon" %>
+          <h1 class="text-secondary">Tabular Track</h1>
+        <% end %>
+      </div>
+      <div class="right-nav">
+        <% if user_signed_in? %>
+          <div class="dropdown show mr-3">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Menu
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <% if current_user.admin? %>
+                <%= link_to "Admin Dashboard", root_path, class: "dropdown-item" %>
+              <% end %>
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "dropdown-item"%>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </nav>
 </header>

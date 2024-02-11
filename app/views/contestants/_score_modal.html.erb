@@ -1,5 +1,5 @@
 <!-- Button to open modal -->
-<button type="button" class="btn btn-primary" data-action="click->score-modal#toggleFields" data-toggle="modal" data-target="#scoreModal_<%= rating.id %>">
+<button type="button" class="btn btn-secondary" data-action="click->score-modal#toggleFields" data-toggle="modal" data-target="#scoreModal_<%= rating.id %>">
     Add Score
 </button>
 
@@ -10,9 +10,6 @@
             <%= form_with(model: rating, url: contestant_rating_path(rating), method: :patch, local: true) do |form| %>
                 <div class="modal-header">
                     <h5 class="modal-title" id="scoreModalLabel_<%= rating.id %>">Add Score for <%= rating.contestant.full_name %></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                     <%= form.hidden_field :rating_id, value: rating.id %>
@@ -35,8 +32,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <%= form.submit "Save Score", class: "btn btn-primary" %>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                    <%= form.submit "Save Score", class: "btn btn-secondary" %>
                 </div>
             <% end %>
         </div>
