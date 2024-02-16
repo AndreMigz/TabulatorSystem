@@ -1,4 +1,37 @@
 <!-- Button to open modal -->
-<button type="button" class="btn btn-secondary" data-action="" data-toggle="modal" data-target="">
+<button type="button" class="btn btn-secondary" data-action="" data-toggle="modal" data-target="#addMemberModal">
     Add Member
 </button>
+
+<!-- Modal -->
+<div class="modal fade" id="addMemberModal" tabindex="-1" role="dialog" aria-labelledby="addMemberModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <%= form_with(model: member, url: admin_members_path, method: :post, local: true) do |form| %>
+                <div class="modal-header">
+                    <h5 class="modal-title" >Add Member </h5>
+                </div>
+                <div class="modal-body">
+                    <%= form.hidden_field :admin_id, value: admin.id %>
+                    <!-- Input fields inside modal -->
+                    <div class="mb-3">
+                        <%= form.label :email, "Email:" %>
+                        <%= form.text_field :email, class: "form-control" %>
+                    </div>
+                    <div class="mb-3">
+                        <%= form.label :password, "Password:" %>
+                        <%= form.password_field :password, class: "form-control" %>
+                    </div>
+                    <div class="mb-3">
+                        <%= form.label :password_confirmation, "Password Confirmation:" %>
+                        <%= form.password_field :password_confirmation, class: "form-control" %>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                    <%= form.submit "Save", class: "btn btn-secondary" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
