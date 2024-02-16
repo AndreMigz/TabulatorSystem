@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   namespace :contestant do
     resources :ratings
   end
+
+  resources :admin, only: :index
+
 end

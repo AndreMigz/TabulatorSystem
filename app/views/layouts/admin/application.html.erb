@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tabular Track</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "turbo", type: "module" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 flex-wrap p-0">
+          <!-- Sidebar -->
+          <nav class="sidebar bg-secondary vh-100 pt-5">
+            <h2 class="text-center text-light">Tabular Track Admin</h2>
+            <ul class="nav flex-column mt-4 p-2">
+              <li class="nav-item">
+                <%= link_to "User Management", admin_users_path, class: "nav-link text-light active" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Contestant Management", root_path, class: "nav-link text-light active" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Total Tally", root_path, class: "nav-link text-light active" %>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+          <div class="container-fluid main-content">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
