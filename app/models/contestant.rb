@@ -3,7 +3,8 @@ class Contestant < ApplicationRecord
   validates :middle_name, presence: true
   validates :last_name, presence: true
 
-  has_many :ratings
+  belongs_to :user
+  has_many :ratings, dependent: :destroy
 
   after_create :create_rating!
 

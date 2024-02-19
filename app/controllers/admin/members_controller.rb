@@ -1,5 +1,4 @@
 class Admin::MembersController < AdminController
-    before_action :authenticate_user!, :allow_admin
     before_action :set_member, only: [:update, :destroy]
 
     def index
@@ -38,9 +37,5 @@ class Admin::MembersController < AdminController
       @member = User.find_by(id: params[:id])
 
       redirect_to admin_members_path, error: "Member not found." unless @member
-    end
-
-    def allow_admin
-      redirect_to root_path unless current_user.admin?
     end
 end

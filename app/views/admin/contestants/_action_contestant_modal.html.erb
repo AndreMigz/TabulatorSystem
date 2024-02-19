@@ -1,0 +1,73 @@
+<!-- Dropdown -->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Actions
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" data-action="edit" data-toggle="modal" data-target="#editMemberModal">Edit Member</a>
+    <a class="dropdown-item" data-action="delete" data-toggle="modal" data-target="#deleteMemberModal">Delete Member</a>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editMemberModal" tabindex="-1" role="dialog" aria-labelledby="editMemberModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_with(model: contestant, url: admin_contestant_path(contestant), method: :patch, local: true) do |form| %>
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Member </h5>
+        </div>
+        <div class="modal-body">
+          <%= form.hidden_field :id, value: contestant.id %>
+          <%= form.hidden_field :user_id, value: admin.id %>
+          <!-- Input fields inside modal -->
+          <div class="mb-3">
+            <%= form.label :first_name, "First Name:" %>
+            <%= form.text_field :first_name, class: "form-control", required: true %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :middle_name, "Middle Name:" %>
+            <%= form.text_field :middle_name, class: "form-control", required: true %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :last_name, "Last Name:" %>
+            <%= form.text_field :last_name, class: "form-control", required: true %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :age, "Age:" %>
+            <%= form.number_field :age, class: "form-control", required: true %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :address, "Address:" %>
+            <%= form.text_field :address, class: "form-control", required: true %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+          <%= form.submit "Update", class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteMemberModal" tabindex="-1" role="dialog" aria-labelledby="deleteMemberModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_with(model: contestant, url: admin_contestant_path(contestant), method: :delete, local: true) do |form| %>
+      <div class="modal-header">
+        <h5 class="modal-title">Notice </h5>
+      </div>
+      <div class="modal-body">
+        <%= form.hidden_field :contestant , value: contestant.id %>
+        Are you sure want to remove this contestant?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+        <%= form.submit "Delete", class: "btn btn-secondary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

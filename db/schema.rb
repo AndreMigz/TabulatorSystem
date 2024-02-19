@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_02_16_052634) do
+ActiveRecord::Schema.define(version: 2024_02_19_154706) do
 
   create_table "contestants", force: :cascade do |t|
     t.string "first_name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2024_02_16_052634) do
     t.text "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_contestants_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -47,5 +49,6 @@ ActiveRecord::Schema.define(version: 2024_02_16_052634) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contestants", "users"
   add_foreign_key "ratings", "contestants"
 end

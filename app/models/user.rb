@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum role: { admin: 0, standard: 1 }
+  
+  has_many :contestants
 end
