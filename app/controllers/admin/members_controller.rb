@@ -24,6 +24,10 @@ class Admin::MembersController < AdminController
       end
     end
 
+    def destroy
+      redirect_to admin_members_path, notice: "Member Deleted Successfully" if @member.destroy
+    end
+
     private
 
     def member_params
@@ -32,7 +36,6 @@ class Admin::MembersController < AdminController
 
     def set_member
       @member = User.find_by(id: params[:id])
-      Rails.logger.info(@member)
 
       redirect_to admin_members_path, error: "Member not found." unless @member
     end

@@ -5,10 +5,11 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" data-action="edit" data-toggle="modal" data-target="#editMemberModal">Edit Member</a>
+    <a class="dropdown-item" data-action="delete" data-toggle="modal" data-target="#deleteMemberModal">Delete Member</a>
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Edit Modal -->
 <div class="modal fade" id="editMemberModal" tabindex="-1" role="dialog" aria-labelledby="editMemberModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -28,6 +29,27 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
         <%= form.submit "Update", class: "btn btn-secondary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteMemberModal" tabindex="-1" role="dialog" aria-labelledby="deleteMemberModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_with(model: member, url: admin_member_path(member), method: :delete, local: true) do |form| %>
+      <div class="modal-header">
+        <h5 class="modal-title">Notice </h5>
+      </div>
+      <div class="modal-body">
+        <%= form.hidden_field :id , value: member.id %>
+        Are you sure want to remove this user?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+        <%= form.submit "Delete", class: "btn btn-secondary" %>
       </div>
       <% end %>
     </div>
