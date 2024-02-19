@@ -18,7 +18,7 @@
       <% @members.each do |member| %>
         <tr>
           <td><%= member.email %></td>
-          <td>Edit Delete</td>
+          <td> <%= render partial: 'admin/members/action_member_modal', locals: { member: member, admin: current_user } %></td>
         </tr>
       <% end %>
     </tbody>
