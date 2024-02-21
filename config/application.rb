@@ -18,6 +18,7 @@ module RailsRuby3
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.autoload_paths << Rails.root.join('lib')
 
     config.action_dispatch.default_headers = {
       'X-Frame-Options' => 'ALLOWFROM replit.com'

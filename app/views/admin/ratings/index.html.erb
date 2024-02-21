@@ -3,6 +3,29 @@
     <h2 class="mt-3">Total Tally</h2>
   </div>
 </div>
-<div>
-    <!-- Content Goes Here -->
+<div class="mt-5">
+  <table class="table table-striped">
+    <thead class="table-secondary">
+      <tr>
+        <th>Candidate</th>
+        <th class="text-center" style="width: 10%;">Talent</th>
+        <th class="text-center" style="width: 10%;">Jeans Wear</th>
+        <th class="text-center" style="width: 10%;">Sports Wear</th>
+        <th class="text-center" style="width: 10%;">Preliminary QA</th>
+        <th class="text-center" style="width: 10%;">Total Tally</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% @contestants.each do |contestant| %>
+        <tr>
+          <td><%= contestant.full_name %></td>
+          <td class="text-center"><%= @total_ratings_per_exposure[contestant.id]["Talent"] %></td>
+          <td class="text-center"><%= @total_ratings_per_exposure[contestant.id]["Jeans Wear"] %></td>
+          <td class="text-center"><%= @total_ratings_per_exposure[contestant.id]["Sports Wear"] %></td>
+          <td class="text-center"><%= @total_ratings_per_exposure[contestant.id]["Prelim QA"] %></td>
+          <td class="text-center"><%= total_tally(contestant.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
