@@ -76,3 +76,19 @@ header {
       color: rgb(57, 100, 255);
   }
 }
+
+@media (max-width: 991px) {
+  .dropdown-toggle {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  header .left-nav {
+    margin-left: 0;
+  }
+
+  header .right-nav {
+    margin-right: 0;
+  }
+}
