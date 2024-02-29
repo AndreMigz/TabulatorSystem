@@ -1,5 +1,5 @@
 <% if notice %>
-  <p class="alert alert-success text-center"><%= notice %></p>
+  <p class="alert alert-success text-center flash-message" data-controller="flash-message"><%= notice %></p>
 <% elsif alert %>        
-  <p class="alert alert-warning text-center"><%= alert %></p>
+  <p class="alert alert-warning text-center flash-message" data-controller="flash-message"><%= alert %></p>
 <% end %>
