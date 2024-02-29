@@ -1,9 +1,10 @@
 <div class="topbar pt-3">
-  <div class="container-fluid">
-    <h2 class="mt-3"> User Management</h2>
+  <div class="container-fluid d-flex" data-controller='admin--sidenav'>
+    <%= image_tag "menu-icon.svg", style: "height: 40px; width: 40px;", class: "mt-3 me-2", data: { action: 'click->admin--sidenav#toggle' }, alt: "menu icon" %>
+    <h2 class="mt-3">User Management</h2>
   </div>
 </div>
-<div>
+<div class="content-wrapper">
   <div class="d-flex justify-content-end mr-0 mt-4 mb-3">
     <%= render partial: 'admin/members/add_member_modal', locals: { member: User.new, admin: current_user } %>
   </div>
